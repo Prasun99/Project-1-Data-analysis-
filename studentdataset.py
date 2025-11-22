@@ -38,4 +38,26 @@ print("No of Student who score highest is " , len(b))
 print("Students with low study time but higher than avg score \n")
 print(exceptional["StudentID"].tolist(),"\n")
 print("Top 3 scorer are \n")
-print(top3["StudentID"].tolist())
+print(top3["StudentID"].tolist(),"\n")
+
+
+#Calculating Corelation between scores and others
+x = df["Hours_Studied"].corr(df["Score"])
+df["Parent_Education"]=df["Parent_Education"].map({"Low":0,"Medium":1,"High":2})
+y=df["Parent_Education"].corr(df["Score"])
+
+
+if (x<0):
+  print("Student with higher study time tends to score less \n")
+elif(x>0):
+  print("Student with higher study time tends to score more \n")
+else:
+  print("there is no relation between these two\n")
+
+
+if (y<0):
+  print("Student with highly educated parents tends to score less \n")
+elif(y>0):
+  print("Student with less educated parents tends to score more \n")
+else:
+  print("there is no relation between these two \n")
