@@ -5,13 +5,12 @@ df = pd.read_csv("data.csv")
 # FILETRING THE DATA
 low_studied = df[df["Hours_Studied"]<=1.00]
 score = df[df["Score"]<50]
-avg_low_Studied = df["Score"].mean()
+
 students = df[(df["Hours_Studied"] <= 1.00) | (df["Score"] < 50)]
 
 
 print("Following students has study hour of less than 1 \n")
 print(low_studied["StudentID"].tolist(),"\n")
-print("Avg marks of low studied students is: ",avg_low_Studied ,"\n")
 print("Following students have failed the term exam \n")
 print(score["StudentID"].tolist(),"\n")
 print("Number of students failing:", len(score))
